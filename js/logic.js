@@ -121,11 +121,18 @@ window.onkeydown=function(e){
   if(now.x+shapes[now.shapes[index]].width>map.width){
     now.x-=shapes[now.shapes[index]].width-shapes[now.shapes[now.index]].width;
   }
+  var tempy=now.y;
+  if(now.y+shapes[now.shapes[index]].height>map.height){
+    now.y-=shapes[now.shapes[index]].height-shapes[now.shapes[now.index]].height;
+  }
   var temp =now.index;
   now.index=index;
-  if(collision()){
+  if(collision() || now.y+shapes[now.shapes[index]].height>map.height){
     now.index=temp;
     now.x    =tempx;
+    now.y    =tempy;
+
+    console.log('a')
   }
   if(now.x+x+shapes[now.shapes[now.index]].width<=map.width && now.x+x>=0){
     now.x+=x;
