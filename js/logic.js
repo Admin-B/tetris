@@ -25,21 +25,12 @@ function logic(timestamp){
       now=null;
     }else{
       now.y++;
-      for(var y=0; y<t.height; y++){
-        for(var x=0; x<t.width; x++){
-          if(map.data[now.y+y][now.x+x]!==0 && t._data[y][x]==1){
-            now.y--;
-            stop(t);
-            break;
-          }
-        }
-        if(!now){
-          break;
-        }
+      if(collision()){
+        now.y--;
+        stop(t);
       }
     }
   }
-
   requestAnimationFrame(logic);
 }
 function stop(t){
@@ -126,21 +117,31 @@ window.onkeydown=function(e){
     case 32:
       update=50;
   }
-
-  if(now.x+shapes[now.shapes[index]].width>=map.width){
+  var tempx=now.x;
+  if(now.x+shapes[now.shapes[index]].width>map.width){
     now.x-=shapes[now.shapes[index]].width-shapes[now.shapes[now.index]].width;
   }
+  var temp =now.index;
   now.index=index;
+  if(collision()){
+    now.index=temp;
+    now.x    =tempx;
+  }
   if(now.x+x+shapes[now.shapes[now.index]].width<=map.width && now.x+x>=0){
     now.x+=x;
   }
+  if(collision()){
+    now.x-=x;
+  }
+}
+function collision(){
   var t=shapes[now.shapes[now.index]];
   for(var i=0; i<t.height; i++){
     for(var j=0; j<t.width; j++){
       if(map.data[now.y+i][now.x+j]!==0 && t._data[i][j]==1){
-        now.x-=x;
-        return;
+        return true;
       }
     }
   }
+  return false;
 }
