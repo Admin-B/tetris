@@ -160,8 +160,8 @@ shapes.push({
   _data:[
     [1,1,1,1]
   ],
-  width:1,
-  height:4,
+  width:4,
+  height:1,
   background:'#FF4000'
 });
 
