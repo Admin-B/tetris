@@ -1,0 +1,175 @@
+var shapes=[];
+var Bsize=16;
+var map={
+  width:20,
+  height:31,
+  data:[]
+}; //width,height => block size
+for(var i=0; i<map.height; i++){
+  map.data[i]=[];
+  for(var j=0; j<map.width; j++){
+    map.data[i][j]=0;
+  }
+}
+/*
+_data:
+background:
+*/
+//0
+shapes.push({
+  _data:[
+    [1,1],
+    [1,1],
+  ],
+  width:2,
+  height:2,
+  background:'red'
+});
+//1
+shapes.push({
+  _data:[
+    [0,0,1],
+    [1,1,1],
+  ],
+  width:3,
+  height:2,
+  background:'orange'
+});
+shapes.push({
+  _data:[
+    [1,0],
+    [1,0],
+    [1,1]
+  ],
+  width:2,
+  height:3,
+  background:'orange'
+});
+shapes.push({
+  _data:[
+    [1,1,1],
+    [1,0,0],
+  ],
+  width:3,
+  height:2,
+  background:'orange'
+});
+shapes.push({
+  _data:[
+    [1,1],
+    [0,1],
+    [0,1],
+  ],
+  width:2,
+  height:3,
+  background:'orange'
+});
+//2
+shapes.push({
+  _data:[
+    [1,0,0],
+    [1,1,1],
+  ],
+  width:3,
+  height:2,
+  background:'#642EFE'
+});
+shapes.push({
+  _data:[
+    [1,1],
+    [1,0],
+    [1,0],
+  ],
+  width:2,
+  height:3,
+  background:'#642EFE'
+});
+shapes.push({
+  _data:[
+    [1,1,1],
+    [0,0,1],
+  ],
+  width:3,
+  height:2,
+  background:'#642EFE'
+});
+shapes.push({
+  _data:[
+    [0,1],
+    [0,1],
+    [1,1],
+  ],
+  width:2,
+  height:3,
+  background:'#642EFE'
+});
+//3
+shapes.push({
+  _data:[
+    [0,1],
+    [1,1],
+    [1,0],
+  ],
+  width:2,
+  height:3,
+  background:'#FE2EF7'
+});
+shapes.push({
+  _data:[
+    [1,1,0],
+    [0,1,1],
+  ],
+  width:3,
+  height:2,
+  background:'#FE2EF7'
+});
+//4
+shapes.push({
+  _data:[
+    [1,0],
+    [1,1],
+    [0,1],
+  ],
+  width:2,
+  height:3,
+  background:'#FE2EF7'
+});
+shapes.push({
+  _data:[
+    [0,1,1],
+    [1,1,0],
+  ],
+  width:3,
+  height:2,
+  background:'#FE2EF7'
+});
+//5
+shapes.push({
+  _data:[
+    [1],
+    [1],
+    [1],
+    [1],
+  ],
+  width:1,
+  height:4,
+  background:'#FF4000'
+});
+
+shapes.push({
+  _data:[
+    [1,1,1,1]
+  ],
+  width:1,
+  height:4,
+  background:'#FF4000'
+});
+
+var block_prototype=[
+  [0,0,0,0],
+  [1,2,3,4],
+  [5,6,7,8],
+  [9,10,9,10],
+  [11,12,11,12],
+  [13,14,13,14],
+];
